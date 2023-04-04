@@ -2,6 +2,7 @@ import './css/styles.css';
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchCountries } from './fetchCountries';
+import { onInputCheck } from './onInputCheck';
 const DEBOUNCE_DELAY = 300;
 
 const inputEl = document.querySelector('#search-box');
@@ -57,22 +58,4 @@ function markupCountriesInfo(countries) {
       `;
     })
     .join('');
-}
-
-function onInputCheck(countries) {
-  countryListEl.innerHTML = '';
-  countryInfoEl.innerHTML = '';
-  if (countries.length > 10) {
-    Notify.info('Too many matches found. Please enter a more specific name.');
-  } else if (countries.length >= 2 && countries.length <= 10) {
-    countryListEl.insertAdjacentHTML(
-      'beforeend',
-      markupCountriesList(countries)
-    );
-  } else if (countries.length === 1) {
-    countryInfoEl.insertAdjacentHTML(
-      'beforeend',
-      markupCountriesInfo(countries)
-    );
-  }
 }
