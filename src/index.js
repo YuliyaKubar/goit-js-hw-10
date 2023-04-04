@@ -44,7 +44,7 @@ function markupCountriesInfo(countries) {
     .map(({ name, flags, capital, population, languages }) => {
       return `
     <div class = "country-heading">
-        <img class = "country-flag" src="${flag.svg}" alt= "${flag.alt}">
+        <img class = "country-flag" src="${flags.svg}" alt= "${flags.alt}">
         <h1 class= "country-title">${name.official}</h1>
     </div>
     <div class="country-list">
@@ -56,7 +56,7 @@ function markupCountriesInfo(countries) {
         </div>
       `;
     })
-    .join();
+    .join('');
 }
 
 function onInputCheck(countries) {
