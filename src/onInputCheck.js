@@ -1,5 +1,9 @@
+import { markupCountriesInfo } from './markupCountriesInfo';
+import { markupCountriesList } from './markupCountriesList';
+
 const countryListEl = document.querySelector('.country-list');
 const countryInfoEl = document.querySelector('.country-info');
+
 export function onInputCheck(countries) {
   countryListEl.innerHTML = '';
   countryInfoEl.innerHTML = '';
